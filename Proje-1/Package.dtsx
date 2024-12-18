@@ -11,8 +11,8 @@
   DTS:LocaleID="1055"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{E5054DF0-CC00-49B5-B8AD-5DFAF0A941CB}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{21AC31D7-17F9-4742-AC4A-DB89E9846175}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -305,7 +305,18 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    MusteriID, 
+    CASE 
+        WHEN IkinciAd IS NOT NULL THEN CONCAT(CONCAT(IlkAd,' '),CONCAT(IkinciAd, ' '),Soyad) 
+        ELSE CONCAT(CONCAT(IlkAd,' '),Soyad)
+    END AS TamAd, 
+    SehirAd, 
+    BolgeAd, 
+    KategoriID,
+    FLOOR(TIMESTAMPDIFF(DAY, DTarihi, CURDATE()) / 365) AS Yas,
+    DENSE_RANK() OVER (PARTITION BY BolgeAd, KategoriID ORDER BY FLOOR(TIMESTAMPDIFF(DAY, DTarihi, CURDATE()) / 365) ASC, ServetTRY DESC) AS MRank
+FROM</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -322,7 +333,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -331,6 +342,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task 3\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -11772,6 +11785,13 @@ FROM MusteriSehirBolge</property>
                       cachedName="KategoriID"
                       externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
                       lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[KategoriID]" />
+                    <inputColumn
+                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].Columns[IlkAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IlkAd"
+                      externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
+                      lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[IlkAd]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -15036,6 +15056,14 @@ FROM MusteriSehirBolge</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task 3\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
