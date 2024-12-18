@@ -11,8 +11,8 @@
   DTS:LocaleID="1055"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="87"
-  DTS:VersionGUID="{21AC31D7-17F9-4742-AC4A-DB89E9846175}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{75154A16-24D3-4CDE-98F0-F2D859E79FAA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -115,272 +115,6 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task 3"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{EC936DD5-5C14-47F9-82A4-22E6B11C3F24}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 3"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Data Flow Task 3\Conditional Split"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task 3\Conditional Split.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task 3\Conditional Split.Outputs[Conditional Split Default Output]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Conditional Split Default Output"
-                  synchronousInputId="Package\Data Flow Task 3\Conditional Split.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task 3\Conditional Split.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\Data Flow Task 3\Conditional Split.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task 3\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 3\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task 3\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 3\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task 3\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1254</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task 3\OLE DB Destination.Connections[OleDbConnection]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task 3\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <externalMetadataColumns
-                    isUsed="True" />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task 3\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task 3\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task 3\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 3\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task 3\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 3\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task 3\OLE DB Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="OLE DB Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-    MusteriID, 
-    CASE 
-        WHEN IkinciAd IS NOT NULL THEN CONCAT(CONCAT(IlkAd,' '),CONCAT(IkinciAd, ' '),Soyad) 
-        ELSE CONCAT(CONCAT(IlkAd,' '),Soyad)
-    END AS TamAd, 
-    SehirAd, 
-    BolgeAd, 
-    KategoriID,
-    FLOOR(TIMESTAMPDIFF(DAY, DTarihi, CURDATE()) / 365) AS Yas,
-    DENSE_RANK() OVER (PARTITION BY BolgeAd, KategoriID ORDER BY FLOOR(TIMESTAMPDIFF(DAY, DTarihi, CURDATE()) / 365) ASC, ServetTRY DESC) AS MRank
-FROM</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1254</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task 3\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task 3\OLE DB Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <externalMetadataColumns
-                    isUsed="True" />
-                </output>
-                <output
-                  refId="Package\Data Flow Task 3\OLE DB Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task 3\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 3\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task 3\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task 3\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -395,51 +129,6 @@ FROM</property>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{18390212-ACA3-4199-8034-469F5B588B95}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE TopCustomers" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Execute SQL Task 1"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{BB28B6B5-944E-4D62-97B9-F7F99A0946F2}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task 1"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Execute SQL Task 2"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{D0A5C783-6230-4ECE-AF2D-1307928B7B35}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task 2"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Execute SQL Task 3"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2861CD8F-4E03-4E89-BF2F-1496A320E3E6}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task 3"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -7458,6 +7147,57 @@ FROM</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\MSBG-SIFIRLA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BB28B6B5-944E-4D62-97B9-F7F99A0946F2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MSBG-SIFIRLA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{18390212-ACA3-4199-8034-469F5B588B95}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE MusteriSehirBolge" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\MSG_SIFIRLA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D0A5C783-6230-4ECE-AF2D-1307928B7B35}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MSG_SIFIRLA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{18390212-ACA3-4199-8034-469F5B588B95}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE MUSERVET" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\MTAMG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2861CD8F-4E03-4E89-BF2F-1496A320E3E6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="MTAMG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{18390212-ACA3-4199-8034-469F5B588B95}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE EnGencZengin" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\MuServeti"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -11785,19 +11525,12 @@ FROM MusteriSehirBolge</property>
                       cachedName="KategoriID"
                       externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
                       lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[KategoriID]" />
-                    <inputColumn
-                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].Columns[IlkAd]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="IlkAd"
-                      externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
-                      lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[IlkAd]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
-                      dataType="i4"
+                      dataType="i2"
                       name="MusteriID" />
                     <externalMetadataColumn
                       refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
@@ -12884,6 +12617,560 @@ FROM MusteriSehirBolge</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SON_X"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EC936DD5-5C14-47F9-82A4-22E6B11C3F24}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SON_X"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SON_X\MT-UYGUN"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="MT-UYGUN"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SON_X\MT-UYGUN.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SON_X\MT-UYGUN.Inputs[Conditional Split Input].Columns[MRank]"
+                      cachedDataType="i8"
+                      cachedName="MRank"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SON_X\MT-UYGUN.Outputs[MT-UYGUN]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="MT-UYGUN"
+                  synchronousInputId="Package\SON_X\MT-UYGUN.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]} &lt;= 3</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">MRank &lt;= 3</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SON_X\MT-UYGUN.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\SON_X\MT-UYGUN.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SON_X\MT-UYGUN.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\SON_X\MT-UYGUN.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SON_X\MT-UYGUN.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MT-UYGUN.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SON_X\MT-UYGUN.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MT-UYGUN.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SON_X\MTAMGS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="MTAMGS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP (1000) 
+    MB.MusteriID,
+    MB.KategoriID,
+    -- Combine first name, second name (if exists), and last name
+    CASE 
+        WHEN M.IkinciAd IS NOT NULL THEN CONCAT(CONCAT(M.IlkAd, ' '), CONCAT(M.IkinciAd, ' '), M.Soyad)
+        ELSE CONCAT(CONCAT(M.IlkAd, ' '), M.Soyad)
+    END AS TamAd,
+    MS.SehirAd,
+    MS.BolgeAd,
+    -- Calculate age based on the birthdate (DTarihi) and current date (30.11.2024)
+    DATEDIFF(YEAR, M.DTarihi, '2024-11-30') - 
+    CASE 
+        WHEN MONTH(M.DTarihi) &gt; 11 OR (MONTH(M.DTarihi) = 11 AND DAY(M.DTarihi) &gt; 30) THEN 1 
+        ELSE 0 
+    END AS Yas,
+    DENSE_RANK() OVER (PARTITION BY MS.BolgeAd, MB.KategoriID ORDER BY DATEDIFF(YEAR, M.DTarihi, '2024-11-30') ASC, MSV.ServetTRY DESC) AS MRank
+FROM 
+    EnGencZengin MB
+-- Join with the Musteri table to get the customer's first, second, and last name, and birthdate
+LEFT JOIN 
+    MUSTERI M ON MB.MusteriID = M.MusteriID
+-- Join with the MuServet table to get the customer's total wealth (ServetTRY)
+LEFT JOIN 
+    MuServet MSV ON MB.MusteriID = MSV.MusteriID
+-- Join with the MusteriSehirBolge table to get city and region information
+LEFT JOIN 
+    MusteriSehirBolge MS ON MB.MusteriID = MS.MusteriID
+ORDER BY 
+    MS.BolgeAd, MB.KategoriID, Yas ASC, MSV.ServetTRY DESC;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SON_X\MTAMGS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      name="KategoriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[TamAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[TamAd]"
+                      length="152"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[TamAd]"
+                      name="TamAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
+                      length="100"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[SehirAd]"
+                      name="SehirAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
+                      length="100"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[BolgeAd]"
+                      name="BolgeAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[Yas]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[Yas]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[Yas]"
+                      name="Yas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MRank]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]"
+                      name="MRank"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i4"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      dataType="i4"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[TamAd]"
+                      dataType="wstr"
+                      length="152"
+                      name="TamAd" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
+                      dataType="wstr"
+                      length="100"
+                      name="SehirAd" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
+                      dataType="wstr"
+                      length="100"
+                      name="BolgeAd" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[Yas]"
+                      dataType="i4"
+                      name="Yas" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MRank]"
+                      dataType="i8"
+                      name="MRank" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      name="KategoriID" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[TamAd]"
+                      dataType="wstr"
+                      length="152"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[TamAd]"
+                      name="TamAd" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
+                      name="SehirAd" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
+                      name="BolgeAd" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[Yas]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[Yas]"
+                      name="Yas" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MRank]"
+                      dataType="i8"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MRank]"
+                      name="MRank" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SON_X\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TopCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SON_X\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MusteriID]"
+                      cachedDataType="i4"
+                      cachedName="MusteriID"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[KategoriID]"
+                      cachedDataType="i4"
+                      cachedName="KategoriID"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[KategoriID]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TamAd]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="TamAd"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[TamAd]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SehirAd"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[SehirAd]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BolgeAd]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="BolgeAd"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[BolgeAd]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Yas]"
+                      cachedDataType="i4"
+                      cachedName="Yas"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Yas]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[Yas]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MRank]"
+                      cachedDataType="i8"
+                      cachedName="MRank"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
+                      dataType="i4"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
+                      dataType="wstr"
+                      length="255"
+                      name="TamAd" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
+                      dataType="wstr"
+                      length="100"
+                      name="SehirAd" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
+                      dataType="wstr"
+                      length="100"
+                      name="BolgeAd" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Yas]"
+                      dataType="i4"
+                      name="Yas" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ServetTRY]"
+                      dataType="r8"
+                      name="ServetTRY" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
+                      dataType="i4"
+                      name="SiraNo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SON_X\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SON_X\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SON_X\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SON_X\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SON_X.Paths[MT-UYGUN]"
+              endId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="MT-UYGUN"
+              startId="Package\SON_X\MT-UYGUN.Outputs[MT-UYGUN]" />
+            <path
+              refId="Package\SON_X.Paths[OLE DB Source Output]"
+              endId="Package\SON_X\MT-UYGUN.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -12917,7 +13204,31 @@ FROM MusteriSehirBolge</property>
       DTS:From="Package\SON"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Data Flow Task 3" />
+      DTS:To="Package\SON_X" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{43519439-8CBF-465F-BE95-289EC54C3FE8}"
+      DTS:From="Package\SON_X"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\MSBG-SIFIRLA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{EAAE0510-AC98-4150-A0DD-A09DEF9FB8C1}"
+      DTS:From="Package\MSBG-SIFIRLA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\MSG_SIFIRLA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{47182354-B5EE-417D-8D27-6887A9F00F27}"
+      DTS:From="Package\MSG_SIFIRLA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\MTAMG" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -12932,24 +13243,24 @@ FROM MusteriSehirBolge</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="164,42"
-          Id="Package\Data Flow Task 3"
+          Size="116,42"
+          Id="Package\SON_X"
           TopLeft="188,281" />
         <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
           TopLeft="180,20" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\Execute SQL Task 1"
+          Size="157,42"
+          Id="Package\MSBG-SIFIRLA"
           TopLeft="30,380" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\Execute SQL Task 2"
+          Size="152,42"
+          Id="Package\MSG_SIFIRLA"
           TopLeft="236,377" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\Execute SQL Task 3"
+          Size="120,42"
+          Id="Package\MTAMG"
           TopLeft="448,371" />
         <NodeLayout
           Size="103,42"
@@ -13055,18 +13366,108 @@ FROM MusteriSehirBolge</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="270.25,239">
+          TopLeft="270.5,239">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42"
+              EndConnector="-24.5,42"
               Start="0,0"
-              End="0,34.5">
+              End="-24.5,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="-4,21" />
+                  <mssgle:LineSegment
+                    End="-20.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5,21"
+                    Point2="-24.5,21"
+                    Point3="-24.5,25" />
+                  <mssgle:LineSegment
+                    End="-24.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="246,323">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-137.5,57"
+              Start="0,0"
+              End="-137.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="-4,28.5" />
+                  <mssgle:LineSegment
+                    End="-133.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.5,28.5"
+                    Point2="-137.5,28.5"
+                    Point3="-137.5,32.5" />
+                  <mssgle:LineSegment
+                    End="-137.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="187,399.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,0"
+              Start="0,0"
+              End="41.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="41.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="388,395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60,0"
+              Start="0,0"
+              End="52.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13079,22 +13480,92 @@ FROM MusteriSehirBolge</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task 3">
+    design-time-name="Package\SON_X">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="157,42"
-          Id="Package\Data Flow Task 3\OLE DB Source"
+          Size="127,42"
+          Id="Package\SON_X\MTAMGS"
           TopLeft="146,53" />
         <NodeLayout
-          Size="159,42"
-          Id="Package\Data Flow Task 3\Conditional Split"
-          TopLeft="226,172" />
+          Size="138,42"
+          Id="Package\SON_X\MT-UYGUN"
+          TopLeft="225,172" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Data Flow Task 3\OLE DB Destination"
+          Id="Package\SON_X\OLE DB Destination"
           TopLeft="265,287" />
+        <EdgeLayout
+          Id="Package\SON_X.Paths[OLE DB Source Output]"
+          TopLeft="209.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.5,77"
+              Start="0,0"
+              End="84.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="80.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.5,38.5"
+                    Point2="84.5,38.5"
+                    Point3="84.5,42.5" />
+                  <mssgle:LineSegment
+                    End="84.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SON_X.Paths[MT-UYGUN]"
+          TopLeft="294,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.5,73"
+              Start="0,0"
+              End="59.5,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="55.5,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.5,36.5"
+                    Point2="59.5,36.5"
+                    Point3="59.5,40.5" />
+                  <mssgle:LineSegment
+                    End="59.5,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.78490234375,41.5,49.9301953125,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -15060,10 +15531,23 @@ FROM MusteriSehirBolge</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task 3\OLE DB Source">
+    design-time-name="Package\SON_X\MTAMGS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SON_X\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
