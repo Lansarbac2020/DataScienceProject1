@@ -11,8 +11,8 @@
   DTS:LocaleID="1055"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="111"
-  DTS:VersionGUID="{75154A16-24D3-4CDE-98F0-F2D859E79FAA}">
+  DTS:VersionBuild="169"
+  DTS:VersionGUID="{85B2A067-133D-49E2-B8AD-2A90E7C0288E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -77,6 +77,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6B3637FB-8BC2-40F2-A9D9-4E2734D70D34}"
+      DTS:ObjectName="LANSARBACORO.BANK 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LANSARBACORO;Initial Catalog=BANK;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6B3637FB-8BC2-40F2-A9D9-4E2734D70D34}LANSARBACORO.BANK 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LANSARBACORO1]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{24A8FCAE-495D-43B9-B60D-EC83AD2C2C5E}"
@@ -128,7 +140,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{18390212-ACA3-4199-8034-469F5B588B95}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE TopCustomers" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE MSONLISTE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -196,8 +208,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\BANKA_SUBE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -338,8 +350,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\BOLGE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -465,8 +477,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\Hesap.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -685,8 +697,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\ILCE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3017,8 +3029,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\MSB-G.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3071,21 +3083,22 @@
                       name="MusteriID" />
                     <externalMetadataColumn
                       refId="Package\MSB\MSB-G.Inputs[OLE DB Destination Input].ExternalColumns[AcilmaTarihi]"
-                      dataType="dbTimeStamp"
+                      dataType="wstr"
+                      length="27"
                       name="AcilmaTarihi" />
                     <externalMetadataColumn
                       refId="Package\MSB\MSB-G.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="SehirAd" />
                     <externalMetadataColumn
                       refId="Package\MSB\MSB-G.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
                       dataType="wstr"
-                      length="20"
+                      length="100"
                       name="BolgeAd" />
                     <externalMetadataColumn
                       refId="Package\MSB\MSB-G.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
-                      dataType="i8"
+                      dataType="i4"
                       name="SiraNo" />
                   </externalMetadataColumns>
                 </input>
@@ -3166,8 +3179,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\Musteri.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3449,8 +3462,8 @@
               <connections>
                 <connection
                   refId="Package\MSB\SEHIR.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7049,99 +7062,99 @@
               startId="Package\MSB\MJ-MH_BS-I-S.Outputs[Merge Join Output]" />
             <path
               refId="Package\MSB.Paths[Merge Join Output2]"
-              endId="Package\MSB\SortMH.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\MSB\Merge Join.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\MSB.Paths[Merge Join Output3]"
               endId="Package\MSB\SortMHBSI.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\MSB\MJ-MH-BS_I.Outputs[Merge Join Output]" />
             <path
-              refId="Package\MSB.Paths[Merge Join Output4]"
+              refId="Package\MSB.Paths[Merge Join Output3]"
               endId="Package\MSB\SortMHBS.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\MSB\Merjoin-MH-BS.Outputs[Merge Join Output]" />
             <path
-              refId="Package\MSB.Paths[OLE DB Source Output4]"
+              refId="Package\MSB.Paths[Merge Join Output4]"
+              endId="Package\MSB\SortMH.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\MSB\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\MSB.Paths[OLE DB Source Output]"
               endId="Package\MSB\SortBS.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\MSB\BANKA_SUBE.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\MSB.Paths[OLE DB Source Output3]"
-              endId="Package\MSB\SortM.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\MSB\Musteri.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\MSB.Paths[OLE DB Source Output5]"
+              refId="Package\MSB.Paths[OLE DB Source Output1]"
               endId="Package\MSB\SortH.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\MSB\Hesap.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\MSB.Paths[OLE DB Source Output1]"
+              refId="Package\MSB.Paths[OLE DB Source Output2]"
               endId="Package\MSB\SortS.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\MSB\SEHIR.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\MSB.Paths[OLE DB Source Output]"
+              refId="Package\MSB.Paths[OLE DB Source Output3]"
               endId="Package\MSB\SortB.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\MSB\BOLGE.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\MSB.Paths[OLE DB Source Output2]"
+              refId="Package\MSB.Paths[OLE DB Source Output4]"
               endId="Package\MSB\SortI.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\MSB\ILCE.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\MSB.Paths[Sort Output8]"
+              refId="Package\MSB.Paths[OLE DB Source Output5]"
+              endId="Package\MSB\SortM.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\MSB\Musteri.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\MSB.Paths[Sort Output7]"
+              endId="Package\MSB\MJ-MH-BS_I.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\MSB\SortI.Outputs[Sort Output]" />
+            <path
+              refId="Package\MSB.Paths[Sort Output6]"
+              endId="Package\MSB\MJ-MH_BS-I-S.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\MSB\SortMHBSI.Outputs[Sort Output]" />
+            <path
+              refId="Package\MSB.Paths[Sort Output5]"
+              endId="Package\MSB\MJ-MH_BS-I-S.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\MSB\SortS.Outputs[Sort Output]" />
+            <path
+              refId="Package\MSB.Paths[Sort Output1]"
               endId="Package\MSB\Merjoin-MH-BS.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\MSB\SortMH.Outputs[Sort Output]" />
             <path
-              refId="Package\MSB.Paths[Sort Output]"
-              endId="Package\MSB\Merjoin-MH-BS.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\MSB\SortBS.Outputs[Sort Output]" />
-            <path
-              refId="Package\MSB.Paths[Sort Output1]"
+              refId="Package\MSB.Paths[Sort Output3]"
               endId="Package\MSB\MJ-MH-BS-I-S-B.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\MSB\Sort MHBSIS.Outputs[Sort Output]" />
             <path
               refId="Package\MSB.Paths[Sort Output2]"
-              endId="Package\MSB\MJ-MH-BS_I.Inputs[Merge Join Left Input]"
+              endId="Package\MSB\Merjoin-MH-BS.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\MSB\SortMHBS.Outputs[Sort Output]" />
+              startId="Package\MSB\SortBS.Outputs[Sort Output]" />
             <path
-              refId="Package\MSB.Paths[Sort Output3]"
+              refId="Package\MSB.Paths[Sort Output8]"
               endId="Package\MSB\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\MSB\SortH.Outputs[Sort Output]" />
             <path
-              refId="Package\MSB.Paths[Sort Output4]"
-              endId="Package\MSB\MJ-MH_BS-I-S.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\MSB\SortS.Outputs[Sort Output]" />
-            <path
-              refId="Package\MSB.Paths[Sort Output5]"
-              endId="Package\MSB\MJ-MH_BS-I-S.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\MSB\SortMHBSI.Outputs[Sort Output]" />
-            <path
-              refId="Package\MSB.Paths[Sort Output6]"
-              endId="Package\MSB\Merge Join.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\MSB\SortM.Outputs[Sort Output]" />
-            <path
-              refId="Package\MSB.Paths[Sort Output7]"
+              refId="Package\MSB.Paths[Sort Output]"
               endId="Package\MSB\MJ-MH-BS-I-S-B.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\MSB\SortB.Outputs[Sort Output]" />
             <path
-              refId="Package\MSB.Paths[Sort Output9]"
-              endId="Package\MSB\MJ-MH-BS_I.Inputs[Merge Join Right Input]"
+              refId="Package\MSB.Paths[Sort Output4]"
+              endId="Package\MSB\MJ-MH-BS_I.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\MSB\SortI.Outputs[Sort Output]" />
+              startId="Package\MSB\SortMHBS.Outputs[Sort Output]" />
+            <path
+              refId="Package\MSB.Paths[Sort Output9]"
+              endId="Package\MSB\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\MSB\SortM.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -7160,7 +7173,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{18390212-ACA3-4199-8034-469F5B588B95}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE MusteriSehirBolge" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE MSB" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -7508,8 +7521,8 @@
               <connections>
                 <connection
                   refId="Package\MuServeti\DOviz_TUR.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7659,8 +7672,8 @@
               <connections>
                 <connection
                   refId="Package\MuServeti\Doviz_tur.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7810,8 +7823,8 @@
               <connections>
                 <connection
                   refId="Package\MuServeti\Hesap.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -8836,8 +8849,8 @@
               <connections>
                 <connection
                   refId="Package\MuServeti\MuServeti.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -8978,8 +8991,8 @@
               <connections>
                 <connection
                   refId="Package\MuServeti\Musteri_Varlik.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -10294,29 +10307,29 @@
               startId="Package\MuServeti\Hesap.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\MuServeti.Paths[Sort Output4]"
-              endId="Package\MuServeti\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\MuServeti\Sort.Outputs[Sort Output]" />
-            <path
-              refId="Package\MuServeti.Paths[Sort Output]"
-              endId="Package\MuServeti\Merge-MV_DT.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\MuServeti\SortMV.Outputs[Sort Output]" />
-            <path
-              refId="Package\MuServeti.Paths[Sort Output1]"
               endId="Package\MuServeti\Merge-MV_DT.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\MuServeti\SortDT.Outputs[Sort Output]" />
             <path
-              refId="Package\MuServeti.Paths[Sort Output2]"
+              refId="Package\MuServeti.Paths[Sort Output]"
               endId="Package\MuServeti\Merge Join 1.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\MuServeti\Sort 2.Outputs[Sort Output]" />
             <path
-              refId="Package\MuServeti.Paths[Sort Output3]"
+              refId="Package\MuServeti.Paths[Sort Output1]"
               endId="Package\MuServeti\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\MuServeti\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\MuServeti.Paths[Sort Output2]"
+              endId="Package\MuServeti\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\MuServeti\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\MuServeti.Paths[Sort Output3]"
+              endId="Package\MuServeti\Merge-MV_DT.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\MuServeti\SortMV.Outputs[Sort Output]" />
             <path
               refId="Package\MuServeti.Paths[Sort Output5]"
               endId="Package\MuServeti\Merge Join 1.Inputs[Merge Join Right Input]"
@@ -10340,95 +10353,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\SON\Conditional Split"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\SON\Conditional Split.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\SON\Conditional Split.Inputs[Conditional Split Input].Columns[SiraNo]"
-                      cachedDataType="i8"
-                      cachedName="SiraNo"
-                      lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Output].Columns[SiraNo]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\SON\Conditional Split.Outputs[MUygun]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="MUygun"
-                  synchronousInputId="Package\SON\Conditional Split.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\SON\MSBGS.Outputs[OLE DB Source Output].Columns[SiraNo]} == 1</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">SiraNo == 1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\SON\Conditional Split.Outputs[Conditional Split Default Output]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Conditional Split Default Output"
-                  synchronousInputId="Package\SON\Conditional Split.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\SON\Conditional Split.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\SON\Conditional Split.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\SON\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\SON\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\SON\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\SON\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\SON\Merge Join"
               componentClassID="Microsoft.MergeJoin"
@@ -10534,7 +10458,7 @@
                     <inputColumn
                       refId="Package\SON\Merge Join.Inputs[Merge Join Right Input].Columns[AcilmaTarihi]"
                       cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedLength="27"
                       cachedName="AcilmaTarihi"
                       lineageId="Package\SON\MJ-MALL.Outputs[Merge Join Output].Columns[AcilmaTarihi]" />
                     <inputColumn
@@ -10724,7 +10648,7 @@
                     <outputColumn
                       refId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[AcilmaTarihi]"
                       dataType="wstr"
-                      length="10"
+                      length="27"
                       lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[AcilmaTarihi]"
                       name="AcilmaTarihi">
                       <properties>
@@ -10902,7 +10826,7 @@
                     <inputColumn
                       refId="Package\SON\MJ-MALL.Inputs[Merge Join Right Input].Columns[AcilmaTarihi]"
                       cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedLength="27"
                       cachedName="AcilmaTarihi"
                       lineageId="Package\SON\SortUM.Outputs[Sort Output].Columns[AcilmaTarihi]" />
                     <inputColumn
@@ -10949,7 +10873,7 @@
                     <outputColumn
                       refId="Package\SON\MJ-MALL.Outputs[Merge Join Output].Columns[AcilmaTarihi]"
                       dataType="wstr"
-                      length="10"
+                      length="27"
                       lineageId="Package\SON\MJ-MALL.Outputs[Merge Join Output].Columns[AcilmaTarihi]"
                       name="AcilmaTarihi">
                       <properties>
@@ -11076,9 +11000,9 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT MusteriID, AcilmaTarihi, SehirAd, BolgeAd,
-ROW_NUMBER() OVER (PARTITION BY MusteriID ORDER BY AcilmaTarihi) AS SiraNo
-FROM MusteriSehirBolge</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT MusteriID, AcilmaTarihi, SehirAd, BolgeAd, 
+ROW_NUMBER() OVER (PARTITION BY MusteriID ORDER BY AcilmaTarihi) AS SiraNo 
+FROM MSB</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -11104,8 +11028,8 @@ FROM MusteriSehirBolge</property>
               <connections>
                 <connection
                   refId="Package\SON\MSBGS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -11129,7 +11053,7 @@ FROM MusteriSehirBolge</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\SON\MSBGS.Outputs[OLE DB Source Output].ExternalColumns[AcilmaTarihi]"
-                      length="10"
+                      length="27"
                       lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Output].Columns[AcilmaTarihi]"
                       name="AcilmaTarihi"
                       truncationRowDisposition="FailComponent" />
@@ -11172,7 +11096,7 @@ FROM MusteriSehirBolge</property>
                     <externalMetadataColumn
                       refId="Package\SON\MSBGS.Outputs[OLE DB Source Output].ExternalColumns[AcilmaTarihi]"
                       dataType="wstr"
-                      length="10"
+                      length="27"
                       name="AcilmaTarihi" />
                     <externalMetadataColumn
                       refId="Package\SON\MSBGS.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
@@ -11203,7 +11127,7 @@ FROM MusteriSehirBolge</property>
                     <outputColumn
                       refId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[AcilmaTarihi]"
                       dataType="wstr"
-                      length="10"
+                      length="27"
                       lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[AcilmaTarihi]"
                       name="AcilmaTarihi" />
                     <outputColumn
@@ -11219,11 +11143,6 @@ FROM MusteriSehirBolge</property>
                       lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
                       name="BolgeAd" />
                     <outputColumn
-                      refId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[SiraNo]"
-                      dataType="i8"
-                      lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[SiraNo]"
-                      name="SiraNo" />
-                    <outputColumn
                       refId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -11235,6 +11154,11 @@ FROM MusteriSehirBolge</property>
                       lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[SiraNo]"
+                      dataType="i8"
+                      lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Error Output].Columns[SiraNo]"
+                      name="SiraNo" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -11291,8 +11215,8 @@ FROM MusteriSehirBolge</property>
               <connections>
                 <connection
                   refId="Package\SON\MSGS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -11477,8 +11401,8 @@ FROM MusteriSehirBolge</property>
               <connections>
                 <connection
                   refId="Package\SON\MTAMG.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -11497,6 +11421,14 @@ FROM MusteriSehirBolge</property>
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
                       lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].Columns[KategoriID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="KategoriID"
+                      externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
+                      lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[KategoriID]" />
                     <inputColumn
                       refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].Columns[SehirAd]"
                       cachedDataType="wstr"
@@ -11517,14 +11449,6 @@ FROM MusteriSehirBolge</property>
                       cachedName="SiraNo"
                       externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
                       lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[SiraNo]" />
-                    <inputColumn
-                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].Columns[KategoriID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="KategoriID"
-                      externalMetadataColumnId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
-                      lineageId="Package\SON\Merge Join.Outputs[Merge Join Output].Columns[KategoriID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11532,6 +11456,17 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
                       dataType="i2"
                       name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
+                      dataType="wstr"
+                      length="200"
+                      name="TamAd" />
                     <externalMetadataColumn
                       refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
                       dataType="wstr"
@@ -11543,22 +11478,13 @@ FROM MusteriSehirBolge</property>
                       length="100"
                       name="BolgeAd" />
                     <externalMetadataColumn
-                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
-                      dataType="i4"
-                      name="SiraNo" />
-                    <externalMetadataColumn
-                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
-                      dataType="i4"
-                      name="KategoriID" />
-                    <externalMetadataColumn
-                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
-                      dataType="wstr"
-                      length="200"
-                      name="TamAd" />
-                    <externalMetadataColumn
                       refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[Yas]"
                       dataType="i4"
                       name="Yas" />
+                    <externalMetadataColumn
+                      refId="Package\SON\MTAMG.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
+                      dataType="i4"
+                      name="SiraNo" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -11588,11 +11514,11 @@ FROM MusteriSehirBolge</property>
               </outputs>
             </component>
             <component
-              refId="Package\SON\OLE DB Source"
+              refId="Package\SON\MUS"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="OLE DB Source"
+              name="MUS"
               usesDispositions="true"
               version="7">
               <properties>
@@ -11637,232 +11563,321 @@ FROM MusteriSehirBolge</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\SON\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  refId="Package\SON\MUS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\SON\MUS.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MusteriID]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MusteriID]"
                       name="MusteriID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[TCKimlikNo]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[TCKimlikNo]"
                       dataType="i8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[TCKimlikNo]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[TCKimlikNo]"
                       name="TCKimlikNo"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[KategoriID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
                       length="1"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[KategoriID]"
                       name="KategoriID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IlkAd]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IlkAd]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
                       length="50"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IlkAd]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IlkAd]"
                       name="IlkAd"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IkinciAd]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IkinciAd]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
                       length="50"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IkinciAd]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IkinciAd]"
                       name="IkinciAd"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Soyad]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Soyad]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
                       length="50"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Soyad]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Soyad]"
                       name="Soyad"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[DTarihi]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[DTarihi]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[DTarihi]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[DTarihi]"
                       name="DTarihi"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cinsiyet]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Cinsiyet]"
                       dataType="bool"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cinsiyet]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Cinsiyet]"
                       name="Cinsiyet"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MedeniHal]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MedeniHal]"
                       dataType="bool"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MedeniHal]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MedeniHal]"
                       name="MedeniHal"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[YasGrupID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[YasGrupID]"
                       dataType="ui1"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[YasGrupID]"
+                      externalMetadataColumnId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[YasGrupID]"
                       name="YasGrupID"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
                       dataType="i2"
                       name="MusteriID" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
                       dataType="i8"
                       name="TCKimlikNo" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="KategoriID" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
                       dataType="wstr"
                       length="50"
                       name="IlkAd" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
                       dataType="wstr"
                       length="50"
                       name="IkinciAd" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
                       dataType="wstr"
                       length="50"
                       name="Soyad" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
                       dataType="dbTimeStamp"
                       name="DTarihi" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
                       dataType="bool"
                       name="Cinsiyet" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
                       dataType="bool"
                       name="MedeniHal" />
                     <externalMetadataColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
                       dataType="ui1"
                       name="YasGrupID" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\SON\MUS.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
                       dataType="i2"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
                       name="MusteriID" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TCKimlikNo]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[TCKimlikNo]"
                       dataType="i8"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TCKimlikNo]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[TCKimlikNo]"
                       name="TCKimlikNo" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
                       codePage="1252"
                       dataType="str"
                       length="1"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
                       name="KategoriID" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IlkAd]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[IlkAd]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IlkAd]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[IlkAd]"
                       name="IlkAd" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IkinciAd]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[IkinciAd]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IkinciAd]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[IkinciAd]"
                       name="IkinciAd" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Soyad]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[Soyad]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Soyad]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[Soyad]"
                       name="Soyad" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DTarihi]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[DTarihi]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DTarihi]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[DTarihi]"
                       name="DTarihi" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cinsiyet]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[Cinsiyet]"
                       dataType="bool"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cinsiyet]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[Cinsiyet]"
                       name="Cinsiyet" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MedeniHal]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[MedeniHal]"
                       dataType="bool"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MedeniHal]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[MedeniHal]"
                       name="MedeniHal" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YasGrupID]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[YasGrupID]"
                       dataType="ui1"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YasGrupID]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[YasGrupID]"
                       name="YasGrupID" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SON\MUSTERI_SEHIR_BOLGE"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="MUSTERI_SEHIR_BOLGE"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SON\MUSTERI_SEHIR_BOLGE.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SON\MUSTERI_SEHIR_BOLGE.Inputs[Conditional Split Input].Columns[SiraNo]"
+                      cachedDataType="i8"
+                      cachedName="SiraNo"
+                      lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Output].Columns[SiraNo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[MUygun]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="MUygun"
+                  synchronousInputId="Package\SON\MUSTERI_SEHIR_BOLGE.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\SON\MSBGS.Outputs[OLE DB Source Output].Columns[SiraNo]} == 1</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">SiraNo == 1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\SON\MUSTERI_SEHIR_BOLGE.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\SON\MUSTERI_SEHIR_BOLGE.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -11897,7 +11912,7 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\Sort.Inputs[Sort Input].Columns[MusteriID]"
                       cachedDataType="i2"
                       cachedName="MusteriID"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MusteriID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11913,7 +11928,7 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\Sort.Inputs[Sort Input].Columns[TCKimlikNo]"
                       cachedDataType="i8"
                       cachedName="TCKimlikNo"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[TCKimlikNo]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[TCKimlikNo]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11931,7 +11946,7 @@ FROM MusteriSehirBolge</property>
                       cachedDataType="str"
                       cachedLength="1"
                       cachedName="KategoriID"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[KategoriID]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[KategoriID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11948,7 +11963,7 @@ FROM MusteriSehirBolge</property>
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="IlkAd"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IlkAd]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IlkAd]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11965,7 +11980,7 @@ FROM MusteriSehirBolge</property>
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="IkinciAd"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IkinciAd]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IkinciAd]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11982,7 +11997,7 @@ FROM MusteriSehirBolge</property>
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Soyad"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Soyad]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Soyad]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -11998,7 +12013,7 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\Sort.Inputs[Sort Input].Columns[DTarihi]"
                       cachedDataType="dbTimeStamp"
                       cachedName="DTarihi"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[DTarihi]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[DTarihi]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -12014,7 +12029,7 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\Sort.Inputs[Sort Input].Columns[Cinsiyet]"
                       cachedDataType="bool"
                       cachedName="Cinsiyet"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cinsiyet]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Cinsiyet]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -12030,7 +12045,7 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\Sort.Inputs[Sort Input].Columns[MedeniHal]"
                       cachedDataType="bool"
                       cachedName="MedeniHal"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MedeniHal]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MedeniHal]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -12046,7 +12061,7 @@ FROM MusteriSehirBolge</property>
                       refId="Package\SON\Sort.Inputs[Sort Input].Columns[YasGrupID]"
                       cachedDataType="ui1"
                       cachedName="YasGrupID"
-                      lineageId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[YasGrupID]">
+                      lineageId="Package\SON\MUS.Outputs[OLE DB Source Output].Columns[YasGrupID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -12079,7 +12094,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12092,7 +12107,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[TCKimlikNo]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[TCKimlikNo]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12107,7 +12122,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[KategoriID]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[KategoriID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12121,7 +12136,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IlkAd]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IlkAd]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12135,7 +12150,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[IkinciAd]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[IkinciAd]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12149,7 +12164,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Soyad]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Soyad]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12162,7 +12177,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[DTarihi]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[DTarihi]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12175,7 +12190,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cinsiyet]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[Cinsiyet]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12188,7 +12203,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[MedeniHal]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[MedeniHal]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -12201,7 +12216,7 @@ FROM MusteriSehirBolge</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\SON\OLE DB Source.Outputs[OLE DB Source Output].Columns[YasGrupID]}</property>
+                          name="SortColumnId">#{Package\SON\MUS.Outputs[OLE DB Source Output].Columns[YasGrupID]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -12418,7 +12433,7 @@ FROM MusteriSehirBolge</property>
                     <inputColumn
                       refId="Package\SON\SortUM.Inputs[Sort Input].Columns[AcilmaTarihi]"
                       cachedDataType="wstr"
-                      cachedLength="10"
+                      cachedLength="27"
                       cachedName="AcilmaTarihi"
                       lineageId="Package\SON\MSBGS.Outputs[OLE DB Source Output].Columns[AcilmaTarihi]">
                       <properties>
@@ -12509,7 +12524,7 @@ FROM MusteriSehirBolge</property>
                     <outputColumn
                       refId="Package\SON\SortUM.Outputs[Sort Output].Columns[AcilmaTarihi]"
                       dataType="wstr"
-                      length="10"
+                      length="27"
                       lineageId="Package\SON\SortUM.Outputs[Sort Output].Columns[AcilmaTarihi]"
                       name="AcilmaTarihi">
                       <properties>
@@ -12582,7 +12597,7 @@ FROM MusteriSehirBolge</property>
               refId="Package\SON.Paths[MUygun]"
               endId="Package\SON\SortUM.Inputs[Sort Input]"
               name="MUygun"
-              startId="Package\SON\Conditional Split.Outputs[MUygun]" />
+              startId="Package\SON\MUSTERI_SEHIR_BOLGE.Outputs[MUygun]" />
             <path
               refId="Package\SON.Paths[OLE DB Source Output]"
               endId="Package\SON\SortA.Inputs[Sort Input]"
@@ -12590,14 +12605,14 @@ FROM MusteriSehirBolge</property>
               startId="Package\SON\MSGS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\SON.Paths[OLE DB Source Output1]"
-              endId="Package\SON\Conditional Split.Inputs[Conditional Split Input]"
+              endId="Package\SON\MUSTERI_SEHIR_BOLGE.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
               startId="Package\SON\MSBGS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\SON.Paths[OLE DB Source Output2]"
               endId="Package\SON\Sort.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\SON\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\SON\MUS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\SON.Paths[Sort Output]"
               endId="Package\SON\MJ-MALL.Inputs[Merge Join Left Input]"
@@ -12745,36 +12760,63 @@ FROM MusteriSehirBolge</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP (1000) 
-    MB.MusteriID,
-    MB.KategoriID,
-    -- Combine first name, second name (if exists), and last name
-    CASE 
-        WHEN M.IkinciAd IS NOT NULL THEN CONCAT(CONCAT(M.IlkAd, ' '), CONCAT(M.IkinciAd, ' '), M.Soyad)
-        ELSE CONCAT(CONCAT(M.IlkAd, ' '), M.Soyad)
-    END AS TamAd,
-    MS.SehirAd,
-    MS.BolgeAd,
-    -- Calculate age based on the birthdate (DTarihi) and current date (30.11.2024)
-    DATEDIFF(YEAR, M.DTarihi, '2024-11-30') - 
-    CASE 
-        WHEN MONTH(M.DTarihi) &gt; 11 OR (MONTH(M.DTarihi) = 11 AND DAY(M.DTarihi) &gt; 30) THEN 1 
-        ELSE 0 
-    END AS Yas,
-    DENSE_RANK() OVER (PARTITION BY MS.BolgeAd, MB.KategoriID ORDER BY DATEDIFF(YEAR, M.DTarihi, '2024-11-30') ASC, MSV.ServetTRY DESC) AS MRank
-FROM 
-    EnGencZengin MB
--- Join with the Musteri table to get the customer's first, second, and last name, and birthdate
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
+FROM
+
+(SELECT MusteriBilgi.MusteriID, MusteriBilgi.TamAd, MusteriBilgi.SehirAd, MusteriBilgi.BolgeAd,
+       MusteriBilgi.KategoriID, MusteriBilgi.Yas, 
+	   MusteriServet.ServetTRY, DENSE_RANK() OVER (PARTITION BY MusteriBilgi.BolgeAd, MusteriBilgi.KategoriID ORDER BY MusteriBilgi.Yas ASC, MusteriServet.ServetTRY DESC) AS MRank  
+	   
+FROM
+(SELECT M.MusteriID, 
+CASE WHEN M.IkinciAd IS NOT NULL THEN 
+CONCAT(CONCAT(M.IlkAd,' '),CONCAT(M.IkinciAd, ' '),M.Soyad) ELSE 
+CONCAT(CONCAT(M.IlkAd,' '),M.Soyad)
+END AS TamAd, MSX.SehirAd, MSX.BolgeAd,
+M.KategoriID,
+DATEDIFF(YEAR, M.DTarihi, GETDATE()) AS Yas
+FROM MUSTERI M
+INNER JOIN
+(SELECT MSB.MusteriID, MSB.SehirAd, MSB.BolgeAd
+FROM
+(SELECT MS.MusteriID, MS.AcilmaTarihi, MS.SiraNo, MS.SehirAd, B.BolgeAd FROM BOLGE B
 LEFT JOIN 
-    MUSTERI M ON MB.MusteriID = M.MusteriID
--- Join with the MuServet table to get the customer's total wealth (ServetTRY)
+(SELECT H.MusteriID, H.AcilmaTarihi, S.BolgeID, S.SehirAd,
+ROW_NUMBER() OVER (PARTITION BY MusteriID ORDER BY AcilmaTarihi) AS SiraNo
+FROM HESAP H
+LEFT JOIN BANKA_SUBE BS
+ON H.SubeID = BS.SubeID
+LEFT JOIN ILCE I
+ON BS.IlceID = I.IlceID
+LEFT JOIN SEHIR S
+ON I.SehirID = S.SehirID) MS
+ON MS.BolgeID = B.BolgeID) MSB
+WHERE SiraNo=1) MSX
+ON M.MusteriID = MSX.MusteriID) MusteriBilgi
+
 LEFT JOIN 
-    MuServet MSV ON MB.MusteriID = MSV.MusteriID
--- Join with the MusteriSehirBolge table to get city and region information
-LEFT JOIN 
-    MusteriSehirBolge MS ON MB.MusteriID = MS.MusteriID
-ORDER BY 
-    MS.BolgeAd, MB.KategoriID, Yas ASC, MSV.ServetTRY DESC;</property>
+
+(SELECT MTV.MusteriID, (MTV.NakitTRY + MTN.VarlikTRY) AS ServetTRY
+FROM
+(SELECT M.MusteriID, ISNULL(SUM(H.Meblag*DT.Kur),0) AS NakitTRY
+FROM MUSTERI M
+LEFT JOIN HESAP H
+ON M.MusteriID = H.MusteriID
+LEFT JOIN DOVIZ_TUR DT
+ON H.DovizID = DT.DovizID
+GROUP BY M.MusteriID) MTV
+INNER JOIN
+(SELECT M.MusteriID, ISNULL(SUM(MV.Deger*DT.Kur),0) AS VarlikTRY
+FROM MUSTERI M
+LEFT JOIN MUSTERI_VARLIK MV
+ON M.MusteriID = MV.MusteriID
+LEFT JOIN DOVIZ_TUR DT
+ON MV.DovizID = DT.DovizID
+GROUP BY M.MusteriID) MTN
+ON MTV.MusteriID = MTN.MusteriID) MusteriServet
+
+ON MusteriBilgi.MusteriID = MusteriServet.MusteriID) MDATA
+WHERE MRank &lt;= 3</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -12800,8 +12842,8 @@ ORDER BY
               <connections>
                 <connection
                   refId="Package\SON_X\MTAMGS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -12812,7 +12854,7 @@ ORDER BY
                   <outputColumns>
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MusteriID]"
-                      dataType="i4"
+                      dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
@@ -12821,10 +12863,12 @@ ORDER BY
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[KategoriID]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      length="1"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[KategoriID]"
                       name="KategoriID"
                       truncationRowDisposition="FailComponent" />
@@ -12876,16 +12920,27 @@ ORDER BY
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]"
                       name="MRank"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[ServetTRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[ServetTRY]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[ServetTRY]"
+                      name="ServetTRY"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
-                      dataType="i4"
+                      dataType="i2"
                       name="MusteriID" />
                     <externalMetadataColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
                       name="KategoriID" />
                     <externalMetadataColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[TamAd]"
@@ -12895,12 +12950,12 @@ ORDER BY
                     <externalMetadataColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
                       dataType="wstr"
-                      length="100"
+                      length="50"
                       name="SehirAd" />
                     <externalMetadataColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
                       dataType="wstr"
-                      length="100"
+                      length="20"
                       name="BolgeAd" />
                     <externalMetadataColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[Yas]"
@@ -12910,6 +12965,10 @@ ORDER BY
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[MRank]"
                       dataType="i8"
                       name="MRank" />
+                    <externalMetadataColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].ExternalColumns[ServetTRY]"
+                      dataType="r8"
+                      name="ServetTRY" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -12919,12 +12978,14 @@ ORDER BY
                   <outputColumns>
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
-                      dataType="i4"
+                      dataType="i2"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
                       name="MusteriID" />
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
                       name="KategoriID" />
                     <outputColumn
@@ -12936,13 +12997,13 @@ ORDER BY
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
                       dataType="wstr"
-                      length="100"
+                      length="50"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
                       name="SehirAd" />
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
                       dataType="wstr"
-                      length="100"
+                      length="20"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
                       name="BolgeAd" />
                     <outputColumn
@@ -12950,6 +13011,11 @@ ORDER BY
                       dataType="i4"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[Yas]"
                       name="Yas" />
+                    <outputColumn
+                      refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[ServetTRY]"
+                      dataType="r8"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[ServetTRY]"
+                      name="ServetTRY" />
                     <outputColumn
                       refId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Error Output].Columns[MRank]"
                       dataType="i8"
@@ -12988,7 +13054,7 @@ ORDER BY
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[TopCustomers]</property>
+                  name="OpenRowset">[dbo].[MSONLISTE]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -13031,8 +13097,8 @@ ORDER BY
               <connections>
                 <connection
                   refId="Package\SON_X\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK]"
-                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK]"
+                  connectionManagerID="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[LANSARBACORO.BANK 3]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -13046,13 +13112,15 @@ ORDER BY
                   <inputColumns>
                     <inputColumn
                       refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MusteriID]"
-                      cachedDataType="i4"
+                      cachedDataType="i2"
                       cachedName="MusteriID"
                       externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MusteriID]" />
                     <inputColumn
                       refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[KategoriID]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
                       cachedName="KategoriID"
                       externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[KategoriID]" />
@@ -13089,6 +13157,12 @@ ORDER BY
                       cachedName="MRank"
                       externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
                       lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[MRank]" />
+                    <inputColumn
+                      refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ServetTRY]"
+                      cachedDataType="r8"
+                      cachedName="ServetTRY"
+                      externalMetadataColumnId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ServetTRY]"
+                      lineageId="Package\SON_X\MTAMGS.Outputs[OLE DB Source Output].Columns[ServetTRY]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -13098,7 +13172,9 @@ ORDER BY
                       name="MusteriID" />
                     <externalMetadataColumn
                       refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[KategoriID]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
                       name="KategoriID" />
                     <externalMetadataColumn
                       refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TamAd]"
@@ -13121,8 +13197,10 @@ ORDER BY
                       name="Yas" />
                     <externalMetadataColumn
                       refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ServetTRY]"
-                      dataType="r8"
-                      name="ServetTRY" />
+                      dataType="numeric"
+                      name="ServetTRY"
+                      precision="18"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\SON_X\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiraNo]"
                       dataType="i4"
@@ -13243,13 +13321,13 @@ ORDER BY
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="116,42"
-          Id="Package\SON_X"
-          TopLeft="188,281" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
           TopLeft="180,20" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\MSB"
+          TopLeft="297,103" />
         <NodeLayout
           Size="157,42"
           Id="Package\MSBG-SIFIRLA"
@@ -13263,10 +13341,6 @@ ORDER BY
           Id="Package\MTAMG"
           TopLeft="448,371" />
         <NodeLayout
-          Size="103,42"
-          Id="Package\MSB"
-          TopLeft="297,103" />
-        <NodeLayout
           Size="129,42"
           Id="Package\MuServeti"
           TopLeft="75,107" />
@@ -13274,6 +13348,10 @@ ORDER BY
           Size="103,42"
           Id="Package\SON"
           TopLeft="219,197" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\SON_X"
+          TopLeft="188,281" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="267.75,62">
@@ -13480,96 +13558,6 @@ ORDER BY
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\SON_X">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="127,42"
-          Id="Package\SON_X\MTAMGS"
-          TopLeft="146,53" />
-        <NodeLayout
-          Size="138,42"
-          Id="Package\SON_X\MT-UYGUN"
-          TopLeft="225,172" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\SON_X\OLE DB Destination"
-          TopLeft="265,287" />
-        <EdgeLayout
-          Id="Package\SON_X.Paths[OLE DB Source Output]"
-          TopLeft="209.5,95">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84.5,77"
-              Start="0,0"
-              End="84.5,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="4,38.5" />
-                  <mssgle:LineSegment
-                    End="80.5,38.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80.5,38.5"
-                    Point2="84.5,38.5"
-                    Point3="84.5,42.5" />
-                  <mssgle:LineSegment
-                    End="84.5,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SON_X.Paths[MT-UYGUN]"
-          TopLeft="294,214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="59.5,73"
-              Start="0,0"
-              End="59.5,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.5"
-                    Point2="0,36.5"
-                    Point3="4,36.5" />
-                  <mssgle:LineSegment
-                    End="55.5,36.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="55.5,36.5"
-                    Point2="59.5,36.5"
-                    Point3="59.5,40.5" />
-                  <mssgle:LineSegment
-                    End="59.5,65.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="4.78490234375,41.5,49.9301953125,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
     design-time-name="Package\MSB">
     <LayoutInfo>
       <GraphLayout
@@ -13587,17 +13575,9 @@ ORDER BY
           Id="Package\MSB\SortMH"
           TopLeft="79,306" />
         <NodeLayout
-          Size="133,42"
-          Id="Package\MSB\Merge Join"
-          TopLeft="74,208" />
-        <NodeLayout
-          Size="115,42"
-          Id="Package\MSB\Musteri"
-          TopLeft="14,48" />
-        <NodeLayout
           Size="115,42"
           Id="Package\MSB\MSB-G"
-          TopLeft="803,294" />
+          TopLeft="804,292" />
         <NodeLayout
           Size="107,42"
           Id="Package\MSB\SortH"
@@ -13626,10 +13606,6 @@ ORDER BY
           Size="154,42"
           Id="Package\MSB\Merjoin-MH-BS"
           TopLeft="242,219" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\MSB\SortM"
-          TopLeft="11,128" />
         <NodeLayout
           Size="111,42"
           Id="Package\MSB\Hesap"
@@ -13663,7 +13639,7 @@ ORDER BY
           Id="Package\MSB\SortBS"
           TopLeft="292,129" />
         <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output9]"
+          Id="Package\MSB.Paths[Sort Output7]"
           TopLeft="489,174">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13697,109 +13673,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output8]"
-          TopLeft="155,306">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="139.666666666667,-45"
-              Start="0,0"
-              End="139.666666666667,-37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-18.5929145837861" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-18.5929145837861"
-                    Point2="0,-22.5929145837861"
-                    Point3="4,-22.5929145837861" />
-                  <mssgle:LineSegment
-                    End="135.666666666667,-22.5929145837861" />
-                  <mssgle:CubicBezierSegment
-                    Point1="135.666666666667,-22.5929145837861"
-                    Point2="139.666666666667,-22.5929145837861"
-                    Point3="139.666666666667,-26.5929145837861" />
-                  <mssgle:LineSegment
-                    End="139.666666666667,-37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output7]"
-          TopLeft="820.5,159">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16,34"
-              Start="0,0"
-              End="16,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13"
-                    Point2="0,17"
-                    Point3="4,17" />
-                  <mssgle:LineSegment
-                    End="12,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12,17"
-                    Point2="16,17"
-                    Point3="16,21" />
-                  <mssgle:LineSegment
-                    End="16,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\MSB.Paths[Sort Output6]"
-          TopLeft="65,170">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54.6666666666667,38"
-              Start="0,0"
-              End="54.6666666666667,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5289747399703" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5289747399703"
-                    Point2="0,22.5289747399703"
-                    Point3="4,22.5289747399703" />
-                  <mssgle:LineSegment
-                    End="50.6666666666667,22.5289747399703" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50.6666666666667,22.5289747399703"
-                    Point2="54.6666666666667,22.5289747399703"
-                    Point3="54.6666666666667,26.5289747399703" />
-                  <mssgle:LineSegment
-                    End="54.6666666666667,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output5]"
           TopLeft="551,304">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13833,7 +13707,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output4]"
+          Id="Package\MSB.Paths[Sort Output5]"
           TopLeft="661.5,161">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13855,41 +13729,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output3]"
-          TopLeft="203.5,168">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-42.1666666666667,40"
-              Start="0,0"
-              End="-42.1666666666667,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.7147102526003" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7147102526003"
-                    Point2="0,23.7147102526003"
-                    Point3="-4,23.7147102526003" />
-                  <mssgle:LineSegment
-                    End="-38.1666666666667,23.7147102526003" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-38.1666666666667,23.7147102526003"
-                    Point2="-42.1666666666667,23.7147102526003"
-                    Point3="-42.1666666666667,27.7147102526003" />
-                  <mssgle:LineSegment
-                    End="-42.1666666666667,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output2]"
+          Id="Package\MSB.Paths[Sort Output4]"
           TopLeft="360,306">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13923,7 +13763,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output1]"
+          Id="Package\MSB.Paths[Sort Output3]"
           TopLeft="706.666666666667,297">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13957,7 +13797,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Sort Output]"
+          Id="Package\MSB.Paths[Sort Output2]"
           TopLeft="349,171">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13991,31 +13831,65 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[OLE DB Source Output5]"
-          TopLeft="213.5,89">
+          Id="Package\MSB.Paths[Sort Output1]"
+          TopLeft="155,306">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10,37"
+              EndConnector="139.666666666667,-45"
               Start="0,0"
-              End="-10,29.5">
+              End="139.666666666667,-37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.5" />
+                    End="0,-18.5929145837861" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.5"
-                    Point2="0,18.5"
-                    Point3="-4,18.5" />
+                    Point1="0,-18.5929145837861"
+                    Point2="0,-22.5929145837861"
+                    Point3="4,-22.5929145837861" />
                   <mssgle:LineSegment
-                    End="-6,18.5" />
+                    End="135.666666666667,-22.5929145837861" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6,18.5"
-                    Point2="-10,18.5"
-                    Point3="-10,22.5" />
+                    Point1="135.666666666667,-22.5929145837861"
+                    Point2="139.666666666667,-22.5929145837861"
+                    Point3="139.666666666667,-26.5929145837861" />
                   <mssgle:LineSegment
-                    End="-10,29.5" />
+                    End="139.666666666667,-37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MSB.Paths[Sort Output]"
+          TopLeft="820.5,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,34"
+              Start="0,0"
+              End="16,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="12,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,17"
+                    Point2="16,17"
+                    Point3="16,21" />
+                  <mssgle:LineSegment
+                    End="16,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14026,62 +13900,6 @@ ORDER BY
         </EdgeLayout>
         <EdgeLayout
           Id="Package\MSB.Paths[OLE DB Source Output4]"
-          TopLeft="378,91">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-29,38"
-              Start="0,0"
-              End="-29,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15"
-                    Point2="0,19"
-                    Point3="-4,19" />
-                  <mssgle:LineSegment
-                    End="-25,19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-25,19"
-                    Point2="-29,19"
-                    Point3="-29,23" />
-                  <mssgle:LineSegment
-                    End="-29,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[OLE DB Source Output3]"
-          TopLeft="68.25,90">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[OLE DB Source Output2]"
           TopLeft="521.5,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14115,41 +13933,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[OLE DB Source Output1]"
-          TopLeft="652.5,85">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8,34"
-              Start="0,0"
-              End="8,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13"
-                    Point2="0,17"
-                    Point3="4,17" />
-                  <mssgle:LineSegment
-                    End="4,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4,17"
-                    Point2="8,17"
-                    Point3="8,21" />
-                  <mssgle:LineSegment
-                    End="8,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[OLE DB Source Output]"
+          Id="Package\MSB.Paths[OLE DB Source Output3]"
           TopLeft="806.5,79">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14183,7 +13967,109 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Merge Join Output4]"
+          Id="Package\MSB.Paths[OLE DB Source Output2]"
+          TopLeft="652.5,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,34"
+              Start="0,0"
+              End="8,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="4,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,17"
+                    Point2="8,17"
+                    Point3="8,21" />
+                  <mssgle:LineSegment
+                    End="8,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MSB.Paths[OLE DB Source Output1]"
+          TopLeft="213.5,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,37"
+              Start="0,0"
+              End="-10,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-6,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,18.5"
+                    Point2="-10,18.5"
+                    Point3="-10,22.5" />
+                  <mssgle:LineSegment
+                    End="-10,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MSB.Paths[OLE DB Source Output]"
+          TopLeft="378,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29,38"
+              Start="0,0"
+              End="-29,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-25,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25,19"
+                    Point2="-29,19"
+                    Point3="-29,23" />
+                  <mssgle:LineSegment
+                    End="-29,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MSB.Paths[Merge Join Output3]"
           TopLeft="341.416666666667,261">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14205,7 +14091,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MSB.Paths[Merge Join Output3]"
+          Id="Package\MSB.Paths[Merge Join Output2]"
           TopLeft="527.166666666667,253">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14218,28 +14104,6 @@ ORDER BY
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MSB.Paths[Merge Join Output2]"
-          TopLeft="138.75,250">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56"
-              Start="0,0"
-              End="0,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14272,18 +14136,154 @@ ORDER BY
         </EdgeLayout>
         <EdgeLayout
           Id="Package\MSB.Paths[Merge Join Output]"
-          TopLeft="861.25,235">
+          TopLeft="861.75,235">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59"
+              EndConnector="0,57"
               Start="0,0"
-              End="0,51.5">
+              End="0,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5" />
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="133,42"
+          Id="Package\MSB\Merge Join"
+          TopLeft="74,208" />
+        <EdgeLayout
+          Id="Package\MSB.Paths[Merge Join Output4]"
+          TopLeft="140.5,250">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.5,56"
+              Start="0,0"
+              End="-21.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1428571428571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.1428571428571"
+                    Point2="0,33.1428571428571"
+                    Point3="-4,33.1428571428571" />
+                  <mssgle:LineSegment
+                    End="-17.5,33.1428571428571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.5,33.1428571428571"
+                    Point2="-21.5,33.1428571428571"
+                    Point3="-21.5,37.1428571428571" />
+                  <mssgle:LineSegment
+                    End="-21.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115,42"
+          Id="Package\MSB\Musteri"
+          TopLeft="6,37" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\MSB\SortM"
+          TopLeft="11,128" />
+        <EdgeLayout
+          Id="Package\MSB.Paths[OLE DB Source Output5]"
+          TopLeft="64.25,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MSB.Paths[Sort Output8]"
+          TopLeft="203.5,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.1666666666667,40"
+              Start="0,0"
+              End="-42.1666666666667,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7147102526003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7147102526003"
+                    Point2="0,23.7147102526003"
+                    Point3="-4,23.7147102526003" />
+                  <mssgle:LineSegment
+                    End="-38.1666666666667,23.7147102526003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.1666666666667,23.7147102526003"
+                    Point2="-42.1666666666667,23.7147102526003"
+                    Point3="-42.1666666666667,27.7147102526003" />
+                  <mssgle:LineSegment
+                    End="-42.1666666666667,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MSB.Paths[Sort Output9]"
+          TopLeft="65,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.6666666666667,38"
+              Start="0,0"
+              End="54.6666666666667,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5289747399703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5289747399703"
+                    Point2="0,22.5289747399703"
+                    Point3="4,22.5289747399703" />
+                  <mssgle:LineSegment
+                    End="50.6666666666667,22.5289747399703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.6666666666667,22.5289747399703"
+                    Point2="54.6666666666667,22.5289747399703"
+                    Point3="54.6666666666667,26.5289747399703" />
+                  <mssgle:LineSegment
+                    End="54.6666666666667,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14295,19 +14295,6 @@ ORDER BY
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\MSB\Musteri">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\MSB\MSB-G">
     <Properties>
@@ -14827,108 +14814,6 @@ ORDER BY
         </EdgeLayout>
         <EdgeLayout
           Id="Package\MuServeti.Paths[Sort Output4]"
-          TopLeft="103.5,160">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111,50"
-              Start="0,0"
-              End="111,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="4,25" />
-                  <mssgle:LineSegment
-                    End="107,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107,25"
-                    Point2="111,25"
-                    Point3="111,29" />
-                  <mssgle:LineSegment
-                    End="111,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MuServeti.Paths[Sort Output3]"
-          TopLeft="308,154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-72.6666666666667,56"
-              Start="0,0"
-              End="-72.6666666666667,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.2005943536404" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.2005943536404"
-                    Point2="0,33.2005943536404"
-                    Point3="-4,33.2005943536404" />
-                  <mssgle:LineSegment
-                    End="-68.6666666666667,33.2005943536404" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-68.6666666666667,33.2005943536404"
-                    Point2="-72.6666666666667,33.2005943536404"
-                    Point3="-72.6666666666667,37.2005943536404" />
-                  <mssgle:LineSegment
-                    End="-72.6666666666667,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MuServeti.Paths[Sort Output2]"
-          TopLeft="469,485">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="90,39"
-              Start="0,0"
-              End="90,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="86,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="86,19.5"
-                    Point2="90,19.5"
-                    Point3="90,23.5" />
-                  <mssgle:LineSegment
-                    End="90,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\MuServeti.Paths[Sort Output1]"
           TopLeft="753,178">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14962,7 +14847,7 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\MuServeti.Paths[Sort Output]"
+          Id="Package\MuServeti.Paths[Sort Output3]"
           TopLeft="533,183">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14987,6 +14872,108 @@ ORDER BY
                     Point3="138.666666666667,34.2791612057667" />
                   <mssgle:LineSegment
                     End="138.666666666667,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MuServeti.Paths[Sort Output2]"
+          TopLeft="103.5,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111,50"
+              Start="0,0"
+              End="111,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="107,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107,25"
+                    Point2="111,25"
+                    Point3="111,29" />
+                  <mssgle:LineSegment
+                    End="111,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MuServeti.Paths[Sort Output1]"
+          TopLeft="308,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-72.6666666666667,56"
+              Start="0,0"
+              End="-72.6666666666667,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2005943536404" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.2005943536404"
+                    Point2="0,33.2005943536404"
+                    Point3="-4,33.2005943536404" />
+                  <mssgle:LineSegment
+                    End="-68.6666666666667,33.2005943536404" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-68.6666666666667,33.2005943536404"
+                    Point2="-72.6666666666667,33.2005943536404"
+                    Point3="-72.6666666666667,37.2005943536404" />
+                  <mssgle:LineSegment
+                    End="-72.6666666666667,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\MuServeti.Paths[Sort Output]"
+          TopLeft="469,485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90,39"
+              Start="0,0"
+              End="90,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="86,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86,19.5"
+                    Point2="90,19.5"
+                    Point3="90,23.5" />
+                  <mssgle:LineSegment
+                    End="90,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15181,17 +15168,191 @@ ORDER BY
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="111,42"
-          Id="Package\SON\MSGS"
-          TopLeft="29,22" />
+          Size="120,42"
+          Id="Package\SON\MTAMG"
+          TopLeft="638,336" />
         <NodeLayout
           Size="107,42"
           Id="Package\SON\SortA"
           TopLeft="38,121" />
         <NodeLayout
+          Size="116,42"
+          Id="Package\SON\SortUM"
+          TopLeft="612,208" />
+        <NodeLayout
           Size="126,42"
           Id="Package\SON\MJ-MALL"
-          TopLeft="210,189" />
+          TopLeft="196,210" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\SON\MSBGS"
+          TopLeft="335,16" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\SON\MSGS"
+          TopLeft="29,22" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\SON\MUSTERI_SEHIR_BOLGE"
+          TopLeft="420,107" />
+        <NodeLayout
+          Size="103,42"
+          Id="Package\SON\MUS"
+          TopLeft="6,330" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\SON\Merge Join"
+          TopLeft="405,344" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\SON\Sort"
+          TopLeft="208,331" />
+        <EdgeLayout
+          Id="Package\SON.Paths[Sort Output2]"
+          TopLeft="307,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,13"
+              Start="0,0"
+              End="90.5,13">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45,0"
+                    Point2="49,0"
+                    Point3="49,4" />
+                  <mssgle:LineSegment
+                    End="49,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49,9"
+                    Point2="49,13"
+                    Point3="53,13" />
+                  <mssgle:LineSegment
+                    End="90.5,13" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SON.Paths[Sort Output1]"
+          TopLeft="612,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-290,0"
+              Start="0,0"
+              End="-282.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-282.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SON.Paths[Sort Output]"
+          TopLeft="91.5,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="167.5,47"
+              Start="0,0"
+              End="167.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="163.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="163.5,23.5"
+                    Point2="167.5,23.5"
+                    Point3="167.5,27.5" />
+                  <mssgle:LineSegment
+                    End="167.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SON.Paths[OLE DB Source Output2]"
+          TopLeft="109,351.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="99,0"
+              Start="0,0"
+              End="91.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="91.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SON.Paths[OLE DB Source Output1]"
+          TopLeft="394.5,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.5,49"
+              Start="0,0"
+              End="131.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="127.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="127.5,24.5"
+                    Point2="131.5,24.5"
+                    Point3="131.5,28.5" />
+                  <mssgle:LineSegment
+                    End="131.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SON.Paths[OLE DB Source Output]"
           TopLeft="88,64">
@@ -15215,147 +15376,67 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SON.Paths[Sort Output]"
-          TopLeft="91.5,163">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="181.5,26"
-              Start="0,0"
-              End="181.5,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9"
-                    Point2="0,13"
-                    Point3="4,13" />
-                  <mssgle:LineSegment
-                    End="177.5,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="177.5,13"
-                    Point2="181.5,13"
-                    Point3="181.5,17" />
-                  <mssgle:LineSegment
-                    End="181.5,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="119,42"
-          Id="Package\SON\MSBGS"
-          TopLeft="335,16" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\SON\Conditional Split"
-          TopLeft="425,91" />
-        <EdgeLayout
-          Id="Package\SON.Paths[OLE DB Source Output1]"
-          TopLeft="394.5,58">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="110,33"
-              Start="0,0"
-              End="110,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="4,16.5" />
-                  <mssgle:LineSegment
-                    End="106,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="106,16.5"
-                    Point2="110,16.5"
-                    Point3="110,20.5" />
-                  <mssgle:LineSegment
-                    End="110,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="116,42"
-          Id="Package\SON\SortUM"
-          TopLeft="478,168" />
-        <EdgeLayout
           Id="Package\SON.Paths[MUygun]"
-          TopLeft="504.5,133">
+          TopLeft="526,149">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31.5,35"
+              EndConnector="144,59"
               Start="0,0"
-              End="31.5,27.5">
+              End="144,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.5" />
+                    End="0,25.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.5"
-                    Point2="0,17.5"
-                    Point3="4,17.5" />
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
                   <mssgle:LineSegment
-                    End="27.5,17.5" />
+                    End="140,29.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="27.5,17.5"
-                    Point2="31.5,17.5"
-                    Point3="31.5,21.5" />
+                    Point1="140,29.5"
+                    Point2="144,29.5"
+                    Point3="144,33.5" />
                   <mssgle:LineSegment
-                    End="31.5,27.5" />
+                    End="144,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-2.53693359375,22.5,36.5738671875,11.3359375"
+              BoundingBox="53.71306640625,34.5,36.5738671875,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SON.Paths[Sort Output1]"
-          TopLeft="478,189">
+          Id="Package\SON.Paths[Merge Join Output1]"
+          TopLeft="538,365">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-142,21"
+              EndConnector="100,-8"
               Start="0,0"
-              End="-134.5,21">
+              End="92.5,-8">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-67,0" />
+                    End="46,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-67,0"
-                    Point2="-71,0"
-                    Point3="-71,4" />
+                    Point1="46,0"
+                    Point2="50,0"
+                    Point3="50,-4" />
                   <mssgle:LineSegment
-                    End="-71,17" />
+                    End="50,-4" />
                   <mssgle:CubicBezierSegment
-                    Point1="-71,17"
-                    Point2="-71,21"
-                    Point3="-75,21" />
+                    Point1="50,-4"
+                    Point2="50,-8"
+                    Point3="54,-8" />
                   <mssgle:LineSegment
-                    End="-134.5,21" />
+                    End="92.5,-8" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15364,114 +15445,32 @@ ORDER BY
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\SON\OLE DB Source"
-          TopLeft="121,331" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\SON\Sort"
-          TopLeft="335,334" />
-        <EdgeLayout
-          Id="Package\SON.Paths[OLE DB Source Output2]"
-          TopLeft="278,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57,0"
-              Start="0,0"
-              End="49.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="49.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\SON\Merge Join"
-          TopLeft="509,338" />
         <EdgeLayout
           Id="Package\SON.Paths[Merge Join Output]"
-          TopLeft="273,231">
+          TopLeft="259,252">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="302.5,107"
+              EndConnector="212.5,92"
               Start="0,0"
-              End="302.5,99.5">
+              End="212.5,84.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.5" />
+                    End="0,42" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,49.5"
-                    Point2="0,53.5"
-                    Point3="4,53.5" />
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
                   <mssgle:LineSegment
-                    End="298.5,53.5" />
+                    End="208.5,46" />
                   <mssgle:CubicBezierSegment
-                    Point1="298.5,53.5"
-                    Point2="302.5,53.5"
-                    Point3="302.5,57.5" />
+                    Point1="208.5,46"
+                    Point2="212.5,46"
+                    Point3="212.5,50" />
                   <mssgle:LineSegment
-                    End="302.5,99.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SON.Paths[Sort Output2]"
-          TopLeft="434,357">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="75,0"
-              Start="0,0"
-              End="67.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="67.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="120,42"
-          Id="Package\SON\MTAMG"
-          TopLeft="715,331" />
-        <EdgeLayout
-          Id="Package\SON.Paths[Merge Join Output1]"
-          TopLeft="642,355.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="73,0"
-              Start="0,0"
-              End="65.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="65.5,0" />
+                    End="212.5,84.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15484,7 +15483,7 @@ ORDER BY
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SON\MSGS">
+    design-time-name="Package\SON\MTAMG">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15505,7 +15504,7 @@ ORDER BY
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SON\OLE DB Source">
+    design-time-name="Package\SON\MSGS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15518,7 +15517,110 @@ ORDER BY
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SON\MTAMG">
+    design-time-name="Package\SON\MUS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SON_X">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\SON_X\MT-UYGUN"
+          TopLeft="225,172" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\SON_X\OLE DB Destination"
+          TopLeft="265,287" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\SON_X\MTAMGS"
+          TopLeft="146,53" />
+        <EdgeLayout
+          Id="Package\SON_X.Paths[OLE DB Source Output]"
+          TopLeft="209.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.5,77"
+              Start="0,0"
+              End="84.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="80.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.5,38.5"
+                    Point2="84.5,38.5"
+                    Point3="84.5,42.5" />
+                  <mssgle:LineSegment
+                    End="84.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SON_X.Paths[MT-UYGUN]"
+          TopLeft="294,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59.5,73"
+              Start="0,0"
+              End="59.5,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="55.5,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.5,36.5"
+                    Point2="59.5,36.5"
+                    Point3="59.5,40.5" />
+                  <mssgle:LineSegment
+                    End="59.5,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.78490234375,41.5,49.9301953125,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SON_X\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15539,7 +15641,7 @@ ORDER BY
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SON_X\OLE DB Destination">
+    design-time-name="Package\MSB\Musteri">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
